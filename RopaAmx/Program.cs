@@ -70,7 +70,7 @@ using (var scope = app.Services.CreateScope())
     {
         var iniciales = new[]
         {
-            (Nombre: "AdministradorK", Correo: "a24310241@gmail.com", Clave: "Admin123*", Rol: Roles.Administrador),
+            (Nombre: "AdministradorK", Correo: "galdamezx9@gmail.com", Clave: "Admin123*", Rol: Roles.Administrador),
             (Nombre: "Usuario Lector", Correo: "karol.galdamez22@unach.mx", Clave: "Lector123*", Rol: Roles.Lector)
         };
 

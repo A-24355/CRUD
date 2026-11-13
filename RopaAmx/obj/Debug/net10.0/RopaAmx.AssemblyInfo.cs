@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RopaAmx")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1042e129cef788cca214095da98b66f60772644c")]
 [assembly: System.Reflection.AssemblyProductAttribute("RopaAmx")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RopaAmx")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

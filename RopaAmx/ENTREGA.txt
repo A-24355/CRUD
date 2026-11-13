@@ -5,9 +5,9 @@ Repositorio GitHub: https://github.com/TU_USUARIO/TU_REPOSITORIO
 Sitio publicado:    https://TU_SITIO.ejemplo.com
 
 Usuario ADMINISTRADOR (ver, crear, editar y eliminar productos)
-  Correo:     admin@amxk.mx
+  Correo: galdamezx9@gmail.com
   Contraseña: Admin123*
 
 Usuario LECTOR (solo ver el catálogo)
-  Correo:     lector@amxk.mx
+  Correo: karol.galdamez22@unach.mx
   Contraseña: Lector123*

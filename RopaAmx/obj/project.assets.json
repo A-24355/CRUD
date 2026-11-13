@@ -3150,11 +3150,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\a2431\\Downloads\\RopaAmx_Login\\RopaAmx\\RopaAmx.csproj",
+      "projectUniqueName": "C:\\CRUD\\CRUD\\RopaAmx\\RopaAmx.csproj",
       "projectName": "RopaAmx",
-      "projectPath": "C:\\Users\\a2431\\Downloads\\RopaAmx_Login\\RopaAmx\\RopaAmx.csproj",
+      "projectPath": "C:\\CRUD\\CRUD\\RopaAmx\\RopaAmx.csproj",
       "packagesPath": "C:\\Users\\a2431\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\a2431\\Downloads\\RopaAmx_Login\\RopaAmx\\obj\\",
+      "outputPath": "C:\\CRUD\\CRUD\\RopaAmx\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\a2431\\AppData\\Roaming\\NuGet\\NuGet.Config"
