@@ -1,0 +1,68 @@
+@model List<Producto>
+@{
+    ViewData["Title"] = "Catálogo";
+    var esAdmin = User.IsInRole(Roles.Administrador);
+}
+<section class="pagina">
+    <h1 class="titulo-pagina">CATÁLOGO</h1>
+
+    <div class="herramientas">
+        <form method="get" asp-action="Index" class="filtro">
+            <input type="text" name="q" value="@ViewBag.Q" placeholder="Buscar en el catálogo" aria-label="Buscar en el catálogo" />
+            <button type="submit" class="btn-anadir">Buscar</button>
+        </form>
+        @if (esAdmin)
+        {
+            <a class="btn-anadir" asp-action="Crear">+ Añadir producto</a>
+        }
+    </div>
+
+    <div class="tabla-contenedor">
+        <table class="tabla">
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Categoría</th>
+                    <th>Tipo</th>
+                    <th>Precio</th>
+                    <th>Rebaja</th>
+                    <th>Existencia</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var p in Model)
+                {
+                    <tr>
+                        <td>
+                            <div class="mini" style="@(string.IsNullOrEmpty(p.ImagenUrl) ? "" : $"background-image:url('{p.ImagenUrl}')")"></div>
+                        </td>
+                        <td>@p.Nombre @if (p.EsMasVendido) { <small class="insignia">Más vendido</small> }</td>
+                        <td>@p.Categoria?.Nombre</td>
+                        <td>@p.Tipo</td>
+                        <td>$@p.Precio.ToString("N2")</td>
+                        <td>@(p.PrecioRebaja != null ? "$" + p.PrecioRebaja.Value.ToString("N2") : "—")</td>
+                        <td>@p.Existencia</td>
+                        <td class="acciones">
+                            <a class="btn-ver" asp-action="Detalles" asp-route-id="@p.Id">Ver</a>
+                            @if (esAdmin)
+                            {
+                                <a class="btn-ver" asp-action="Editar" asp-route-id="@p.Id">Editar</a>
+                                <form asp-action="Eliminar" asp-route-id="@p.Id" method="post"
+                                      onsubmit="return confirm('¿Eliminar &quot;@p.Nombre&quot;? Esta acción no se puede deshacer.');">
+                                    <input type="hidden" name="volver" value="catalogo" />
+                                    <button type="submit" class="btn-eliminar">Eliminar</button>
+                                </form>
+                            }
+                        </td>
+                    </tr>
+                }
+                @if (!Model.Any())
+                {
+                    <tr><td colspan="8" class="vacio">No hay productos que mostrar.</td></tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>

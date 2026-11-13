@@ -1,0 +1,28 @@
+@model RegistroViewModel
+@{ ViewData["Title"] = "Crear cuenta"; }
+<section class="pagina">
+    <h1 class="titulo-pagina">CREAR CUENTA</h1>
+    <form asp-action="Registro" method="post" class="formulario">
+        <div asp-validation-summary="ModelOnly" class="error"></div>
+
+        <label asp-for="NombreCompleto"></label>
+        <input asp-for="NombreCompleto" autocomplete="name" autofocus />
+        <span asp-validation-for="NombreCompleto" class="error"></span>
+
+        <label asp-for="Correo"></label>
+        <input asp-for="Correo" type="email" autocomplete="username" />
+        <span asp-validation-for="Correo" class="error"></span>
+
+        <label asp-for="Password"></label>
+        <input asp-for="Password" autocomplete="new-password" />
+        <span asp-validation-for="Password" class="error"></span>
+
+        <label asp-for="ConfirmarPassword"></label>
+        <input asp-for="ConfirmarPassword" autocomplete="new-password" />
+        <span asp-validation-for="ConfirmarPassword" class="error"></span>
+
+        <button type="submit" class="btn-anadir">Registrarme</button>
+        <p>Las cuentas nuevas tienen permiso solo para ver el catálogo.</p>
+        <p>¿Ya tienes cuenta? <a asp-action="Login">Inicia sesión</a></p>
+    </form>
+</section>

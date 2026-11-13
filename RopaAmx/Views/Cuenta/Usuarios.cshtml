@@ -1,0 +1,42 @@
+@using System.Security.Claims
+@model List<Usuario>
+@{
+    ViewData["Title"] = "Usuarios";
+    var actual = User.FindFirstValue(ClaimTypes.NameIdentifier);
+}
+<section class="pagina">
+    <h1 class="titulo-pagina">USUARIOS</h1>
+    <p>Los usuarios nuevos se registran como <strong>Lector</strong> (solo ven el catálogo). Aquí puedes darles permisos de <strong>Administrador</strong> o desactivarlos.</p>
+
+    <div class="tabla-contenedor">
+        <table class="tabla">
+            <thead>
+                <tr><th>Nombre</th><th>Correo</th><th>Rol</th><th>Estado</th><th>Registro</th><th>Acciones</th></tr>
+            </thead>
+            <tbody>
+                @foreach (var u in Model)
+                {
+                    var esYo = u.Id.ToString() == actual;
+                    <tr>
+                        <td>@u.NombreCompleto @if (esYo) { <small class="insignia">Tú</small> }</td>
+                        <td>@u.CorreoElectronico</td>
+                        <td>@u.Rol</td>
+                        <td>@(u.Activo == false ? "Inactivo" : "Activo")</td>
+                        <td>@u.FechaRegistro?.ToString("dd/MM/yyyy")</td>
+                        <td class="acciones">
+                            @if (!esYo)
+                            {
+                                <form asp-action="CambiarRol" asp-route-id="@u.Id" method="post">
+                                    <button type="submit" class="btn-ver">@(u.Rol == Roles.Administrador ? "Hacer Lector" : "Hacer Administrador")</button>
+                                </form>
+                                <form asp-action="CambiarEstado" asp-route-id="@u.Id" method="post">
+                                    <button type="submit" class="btn-eliminar">@(u.Activo == false ? "Activar" : "Desactivar")</button>
+                                </form>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>

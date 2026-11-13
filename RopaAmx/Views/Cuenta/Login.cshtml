@@ -1,0 +1,24 @@
+@model LoginViewModel
+@{
+    ViewData["Title"] = "Iniciar sesión";
+    var returnUrl = ViewData["ReturnUrl"] as string;
+}
+<section class="pagina">
+    <h1 class="titulo-pagina">INICIAR SESIÓN</h1>
+    <form asp-action="Login" asp-route-returnUrl="@returnUrl" method="post" class="formulario">
+        <div asp-validation-summary="ModelOnly" class="error"></div>
+
+        <label asp-for="Correo"></label>
+        <input asp-for="Correo" type="email" autocomplete="username" autofocus />
+        <span asp-validation-for="Correo" class="error"></span>
+
+        <label asp-for="Password"></label>
+        <input asp-for="Password" autocomplete="current-password" />
+        <span asp-validation-for="Password" class="error"></span>
+
+        <label class="check"><input asp-for="Recordarme" /> Mantener sesión iniciada</label>
+
+        <button type="submit" class="btn-anadir">Entrar</button>
+        <p>¿No tienes cuenta? <a asp-action="Registro">Regístrate aquí</a></p>
+    </form>
+</section>

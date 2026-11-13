@@ -1,0 +1,39 @@
+@model Producto
+@{ ViewData["Title"] = Model.Nombre; var esAdmin = User.IsInRole(Roles.Administrador); }
+<section class="pagina">
+    <div class="detalle">
+        <div class="detalle-img"
+             style="@(string.IsNullOrEmpty(Model.ImagenUrl) ? "" : $"background-image:url('{Model.ImagenUrl}')")"></div>
+        <div>
+            <h1 class="titulo-pagina">@Model.Nombre.ToUpper()</h1>
+            <p class="precio grande">
+                @if (Model.PrecioRebaja != null)
+                {
+                    <span>$@Model.PrecioRebaja.Value.ToString("N2")</span>
+                    <s>$@Model.Precio.ToString("N2")</s>
+                }
+                else
+                {
+                    <span>$@Model.Precio.ToString("N2")</span>
+                }
+            </p>
+            <p>@Model.Descripcion</p>
+            <p><strong>Categoría:</strong> @Model.Categoria?.Nombre</p>
+            <p><strong>Tipo:</strong> @Model.Tipo</p>
+            <p><strong>Existencia:</strong> @Model.Existencia</p>
+
+            <div class="acciones">
+                <a class="btn-ver" asp-action="Index">← Volver al catálogo</a>
+                @if (esAdmin)
+                {
+                    <a class="btn-ver" asp-action="Editar" asp-route-id="@Model.Id">Editar</a>
+                    <form asp-action="Eliminar" asp-route-id="@Model.Id" method="post"
+                          onsubmit="return confirm('¿Eliminar &quot;@Model.Nombre&quot;? Esta acción no se puede deshacer.');">
+                        <input type="hidden" name="volver" value="catalogo" />
+                        <button type="submit" class="btn-eliminar">Eliminar</button>
+                    </form>
+                }
+            </div>
+        </div>
+    </div>
+</section>

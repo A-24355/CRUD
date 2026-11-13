@@ -1,0 +1,13 @@
+ENTREGA - AMX K (ASP.NET Core MVC + SQL Server)
+Alumno: Karol Alberto Galdámez Gómez
+
+Repositorio GitHub: https://github.com/TU_USUARIO/TU_REPOSITORIO
+Sitio publicado:    https://TU_SITIO.ejemplo.com
+
+Usuario ADMINISTRADOR (ver, crear, editar y eliminar productos)
+  Correo:     admin@amxk.mx
+  Contraseña: Admin123*
+
+Usuario LECTOR (solo ver el catálogo)
+  Correo:     lector@amxk.mx
+  Contraseña: Lector123*
